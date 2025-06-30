@@ -1,0 +1,70 @@
+---
+export interface Props {
+    frontmatter: {
+        title: string;
+        pubDate: string;
+        description: string;
+        author: string;
+        image?: {
+            url: string;
+            alt: string;
+        };
+        tags: string[];
+    };
+}
+import '../styles/global.css';
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.description} />
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/blog/">Blog</a>
+        </nav>
+
+        <main>
+            <article>
+                <header>
+                    <h1>{frontmatter.title}</h1>
+                    <p>
+                        Published on {new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })} by <strong>{frontmatter.author}</strong>
+                    </p>
+                    {frontmatter.tags && frontmatter.tags.length > 0 && (
+                        <div>
+                            <p>Tags: 
+                                {frontmatter.tags.map((tag, index) => (
+                                    <span>
+                                        <code>{tag}</code>
+                                        {index < frontmatter.tags.length - 1 ? ', ' : ''}
+                                    </span>
+                                ))}
+                            </p>
+                        </div>
+                    )}
+                </header>
+                
+                <div>
+                    <slot />
+                </div>
+                
+                <footer>
+                    <a href="/blog/">← Back to Blog</a>
+                </footer>
+            </article>
+        </main>
+    </body>
+</html>

@@ -1,27 +1,48 @@
 ---
-// import Welcome from '../components/Welcome.astro';
-// import Layout from '../layouts/Layout.astro';
-
-// // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-// ---
-
-// <Layout>
-// 	<Welcome />
-// </Layout>
+const pageTitle = "Almost A Physicist";
+import '../styles/global.css';
 
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Almost A Physicist</title>
-  </head>
-  <body>
-    <h1>Trial Astro Website I Build</h1>
-    <a href="/about/">About</a>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/blog/">Blog</a>
+        </nav>
+
+        <main>
+            <h1>Trial Astro Website I Build</h1>
+            <h2>Welcome to my physics journey!</h2>
+
+            <p>
+                Welcome to my personal website! I'm exploring the fascinating world of physics
+                and sharing my learning journey through this Astro-powered site.
+            </p>
+
+            <p>
+                This is my experimental space where I document thoughts, discoveries, and
+                insights about physics, science, and technology. Feel free to explore!
+            </p>
+
+            <h3>What you'll find here:</h3>
+            <ul>
+                <li><strong>About Me</strong> - Learn more about my background and interests</li>
+                <li><strong>Blog</strong> - Read my latest thoughts and discoveries</li>
+                <li><strong>Physics Insights</strong> - Dive into the world of physics with me</li>
+            </ul>
+
+            <p>
+                This site is built with <code>Astro</code>. Navigate using the links above to explore more!
+            </p>
+        </main>
+    </body>
 </html>
